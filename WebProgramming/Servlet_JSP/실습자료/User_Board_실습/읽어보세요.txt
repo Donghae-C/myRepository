@@ -1,0 +1,108 @@
+
+ *jsp문서
+   index.jsp
+   left.jsp
+   center.jsp
+   top.jsp
+   footer.jsp
+
+   특이사항 : index.jsp문서 메인이다.
+              index.jsp문서는 3행 2열 테이블을 만든다.
+              index.jsp문서안에 left.jsp와 center.jsp는 
+                 <iframe src="left.jsp"> ,  <iframe src="center.jsp">으로 넣는다.
+              index.jsp문서안에 top.jsp와 footer.jsp는 include개념으로 넣는다.
+      
+
+
+v *Listener 
+    : ServletContextListener를 구현한 listener 객체를 만든다.
+      서버가 start될  List<BoardDTO> 를 만들어 3개의 데이터를 만들고
+      application영역에 저장한다.
+
+
+v *servlet문서 
+ BoardServlet.java
+   특이사항: BoardServlet.java의 init()을 만들어서
+           application영역에서 list를 가져온다.
+           BoardServlet은 반드시 사전초기화<load-->한다. 
+
+v LoginServlet.java - 비교할 dbId, dbPwd는 init-param전달받아 비교한다.
+
+ LogoutServlet.java
+
+
+* BoardDTO.java  : 글번호 ,제목, 내용 속성 관리하는 객체
+
+------------------------------------------------------------
+1) Listener 작성방법
+    application영역에 List<BoardDTO>저장한다.
+      * BoardDTO의 속성(no, subject, content)
+
+     * application저장 
+        application.setAttibute("boarList", 저장된list);  
+
+
+
+ 1) 글 등록하기  
+  BoardServlet.java  - 게시물 등록하기
+       init()메소드에서  application.getAttibute로 저장된 list를 조회한다.
+
+     ex)
+    
+     public void  service(request, response){
+         //넘어오는 값받아서... -> DTO생성한후 
+         application에 있는 list에 추가한다.
+
+         //이동한다. (index.jsp이동한다)
+         <script>
+            top.location.href="index.jsp";
+         </script>
+     }
+
+
+------------------------------------------
+
+left.jsp 문서에서
+  if(세션이 없다면){
+     //로그인폼을 출력
+  }else{
+     //이름과 접속시간출력
+  }
+
+=======================================================
+center.jsp문서에서   
+
+  *JSTL문법이용
+  <c:forEach items="${applicationScope.boardList}" >
+
+ </c:forEach>
+
+
+ if(세션이있다면){
+     게시물 등록폼 출력
+  }
+
+
+===================================================
+LoginServlet.java
+  인증을 성공하면  
+  //이동한다. (index.jsp이동한다)
+         <script>
+            top.location.href="index.jsp";
+         </script>
+
+======================================================
+LogoutServlet.java
+ 
+
+
+
+
+
+
+
+
+
+
+
+

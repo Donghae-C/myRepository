@@ -1,0 +1,35 @@
+package ex0729.homework;
+
+public class ReportCard {
+
+	public static void main(String[] args) {
+		String myName = "donghae";
+		int koreanRecord = (int)(Math.random()*56)+45;
+		int englishRecord = (int)(Math.random()*56)+45;
+		int mathRecord = (int)(Math.random()*56)+45;
+		
+		int sumRecord = koreanRecord + englishRecord + mathRecord;
+		double recordAvg = sumRecord / 3.0;
+		char charRecord = 'F';
+		
+		if(sumRecord >= 90) {
+			charRecord = 'A';
+		}else if(sumRecord >= 80) {
+			charRecord = 'B';
+		}else if(sumRecord >= 70) {
+			charRecord = 'C';
+		}else if(sumRecord >= 60) {
+			charRecord = 'D';
+		}else {
+			charRecord = 'F';
+		}
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

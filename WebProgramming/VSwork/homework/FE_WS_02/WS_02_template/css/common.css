@@ -1,0 +1,39 @@
+#banner {
+  background-color: blue;
+  border: 3px solid skyblue;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+}
+
+#main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#main .main-item {
+}
+
+#main .main-item button {
+  align-self: flex-end;
+}
+
+#main img {
+  width: 100%;
+}
+
+#container h1 {
+  text-align: center;
+}
+
+#container label {
+  display: inline-block;
+  width: 100px;
+  margin: 10px 0px 0px;
+}
+
+#login form,
+#register form {
+  border: 1px solid gray;
+  padding: 20px 20px;
+}

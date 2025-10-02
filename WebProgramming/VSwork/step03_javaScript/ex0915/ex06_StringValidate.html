@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <form name="form">
+      ID : <input type="text" name="id" /><span id="idSpan"></span>
+      <p>age : <input type="text" name="age" /><span></span></p>
+      <p>email : <input type="text" name="email" /> <span></span></p>
+      <p></p>
+
+      <fieldset>
+        <legend>주민번호</legend>
+        <input type="text" size="6" name="jumin1" /> - <input type="text" size="7" name="jumin2" /><span></span>
+        <p>
+          성별 :
+          <input type="radio" name="gender" value="남자" />남자 <input type="radio" name="gender" value="여자" />여자
+        </p>
+      </fieldset>
+    </form>
+
+    <script>
+      //1. id는 영문만 가능 -> blur 이벤트.(커서를 다른곳으로 움직일때)
+
+      document.querySelector("[name=id]").addEventListener(
+        "focus",
+        () => {
+          event.target.style.border = "double 5px red";
+        },
+        false
+      );
+      document.querySelector("[name=id]").addEventListener(
+        "blur",
+        () => {
+          event.target.style.border = "solid 1px black";
+          //id의 값을 가지고 온다.
+          //허용가능한 문자열을 준비
+          let data = "abcdefghijklmnopqrstuvwxyz";
+          let idv = event.target.value;
+          console.log(idv.length);
+          for (let i = 0; i < idv.length; i++) {
+            let ch = idv.charAt(i);
+            if (data.indexOf(ch) === -1) {
+              document.getElementById("idSpan").innerHTML = "<strong>아이디는 영문만 가능</strong>";
+              event.target.focus();
+              return;
+            } else {
+              document.getElementById("idSpan").innerHTML = "";
+            }
+          }
+        },
+        false
+      );
+
+      //나이에 숫자 유무 체크////////////////////////////////////////
+
+      document.querySelector("input[name='age']").addEventListener(
+        "blur",
+        () => {
+          //console.log(event.target.value);
+          //입력값이 숫자인지를 체크
+          numberCheck(event.target);
+        },
+        false
+      );
+
+      //숫자유무체크하는 함수 작성
+      let numberCheck = (objEle) => {
+        if (isNaN(objEle.value)) {
+          //숫자가 아닐때
+          //인접해 있는 span태그에 메시지를 출력.
+          objEle.nextElementSibling.innerHTML = "<strong>숫자만 가능</strong>";
+          objEle.value = "";
+          objEle.focus();
+          return true; // true = 숫자가 아님. false = 숫자임
+        } else {
+          //숫자일때
+          objEle.nextElementSibling.innerHTML = "";
+          return false;
+        }
+      };
+
+      //주민번호 앞자리 6자리 체크해서 커서 이동
+      document.querySelector("[name='jumin1']").addEventListener("keyup", () => {
+        //입력한 값이 숫자가 아니면 마지막 자리를 지운다.
+        if (isNaN(event.target.value)) {
+          //끝자리를 지운다.
+          event.target.value = event.target.value.substring(0, event.target.value.length - 1);
+          return;
+        }
+
+        //6자리가 되면 커서를 이동시킨다.
+        if (event.target.value.length >= 6) {
+          //event.target.nextElementSibling.focus();
+          document.querySelector("[name='jumin2']").focus();
+        }
+      });
+
+      ////////////////////////////////////
+
+      document.querySelector("[name='jumin2']").addEventListener(
+        "keyup",
+        () => {
+          //숫자체크
+          let result = numberCheck(event.target);
+          if (!result) {
+            let ch = event.target.value.charAt(0);
+
+            let radios = document.getElementsByName("gender");
+            if (ch === "1") {
+              radios[0].checked = true;
+            } else {
+              radios[1].checked = true;
+            }
+          }
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

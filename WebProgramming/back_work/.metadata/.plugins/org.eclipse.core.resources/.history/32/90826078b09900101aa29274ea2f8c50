@@ -1,0 +1,12 @@
+package ex0925.test;
+
+public class logExam {
+
+	public static void main(String[] args) {
+		System.out.println("**LogTest 시작**");
+
+		
+		System.out.println("**LogTest 끝**");
+	}
+
+}

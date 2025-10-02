@@ -1,0 +1,19 @@
+package kosta.mvc.listener;
+
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
+
+@WebListener
+public class HandlerMappingListener implements ServletContextListener {
+    public HandlerMappingListener() {
+
+    }
+/**
+ * 서버가 start될때 필요한 Controller를 미리 생성해서 map에 저장한 후
+ * map을 어디서든 사용할 수 있도록 applicationScope에 저장.
+ */
+    public void contextInitialized(ServletContextEvent sce)  { 
+
+    }	
+}

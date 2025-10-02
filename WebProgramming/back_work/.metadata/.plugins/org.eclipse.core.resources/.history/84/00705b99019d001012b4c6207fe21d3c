@@ -1,0 +1,43 @@
+package kosta.mvc.listener;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+import java.util.ResourceBundle;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
+
+@WebListener
+public class HandlerMappingListener implements ServletContextListener {
+    public HandlerMappingListener() {
+
+    }
+/**
+ * 서버가 start될때 필요한 Controller를 미리 생성해서 map에 저장한 후
+ * map을 어디서든 사용할 수 있도록 applicationScope에 저장.
+ */
+    public void contextInitialized(ServletContextEvent e)  { 
+    	//1. actionMapping.properties파일 로딩
+    	ServletContext application = e.getServletContext();
+    	String fileName = application.getInitParameter("fileName");
+    	System.out.println(fileName);
+    	
+    	ResourceBundle rb = ResourceBundle.getBundle(fileName);
+    	
+    	//2. 반복문 안에서 key와 value를 분리해서 value를 객체로 만든다.
+    	for(String key : rb.keySet()) { //모든 key를 반복하면서 key변수에 담는다.
+    		String value = rb.getString(key);
+    		System.out.println(key + "/" + value);
+    		
+    		Class<?> className = Class.forName(value);
+    	}
+    	
+    	//3. map에 put으로 저장
+    	
+    	//4. map을 applicationScope에 저장한다.
+    }	
+}

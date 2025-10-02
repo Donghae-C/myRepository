@@ -1,0 +1,73 @@
+package web.mvc.controller;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
+import web.mvc.dto.Electronics;
+import web.mvc.service.ElectronicsService;
+import web.mvc.service.ElectronicsServiceImpl;
+
+public class ElectronicsController implements Controller {
+	ElectronicsService eService = new ElectronicsServiceImpl();
+
+	public ModelAndView list(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+		List<Electronics> elecList = eService.selectAll();
+		request.setAttribute("list", elecList);
+		return new ModelAndView("elec/list.jsp");
+	}
+
+	public ModelAndView selectByModelNum(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+		String modelNum = request.getParameter("modelNum");
+		System.out.println(modelNum);
+		Electronics elec = eService.selectByModelnum(modelNum, true);
+		request.setAttribute("elec", elec);
+		return new ModelAndView("elec/read.jsp");
+	}
+
+	public ModelAndView insert(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException, SQLException {
+		String modelNum = request.getParameter("model_num");
+		String modelName = request.getParameter("model_name");
+		String price = request.getParameter("price");
+		String description = request.getParameter("description");
+		String password = request.getParameter("password");
+		if (modelNum == null || modelNum.equals("") || modelName == null || modelName.equals("") || price == null
+				|| price.equals("") || description == null || description.equals("") || password == null
+				|| password.equals("")) {
+			throw new ServletException("채워지지 않은 정보가 있음");
+		}
+		int p = Integer.parseInt(price);
+		Electronics elec = new Electronics(modelNum, modelName, p, description, password);
+
+		Part part = request.getPart("file");
+		long fileSize = part.getSize();
+		String fileName = part.getSubmittedFileName();
+		System.out.println(fileName);
+		ServletContext application = request.getServletContext();
+		String saveDir = (String) application.getAttribute("saveDir");
+
+		if (fileName != null && !fileName.isEmpty()) {
+			System.out.println(saveDir);
+			part.write(saveDir + "/" + fileName);
+			elec.setFname(fileName);
+			elec.setFsize((int) fileSize);
+		}
+		eService.insert(elec);
+		String contextPath = application.getContextPath();
+		System.out.println(contextPath);
+		return new ModelAndView(contextPath + "/front", true);
+	}
+
+	public ModelAndView updateForm(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+		String modelNum = request.getParameter("modelNum");
+		Electronics elec = eService.selectByModelnum(modelNum, false);
+		request.setAttribute("elec", elec);
+		return new ModelAndView("elec/update.jsp");
+	}
+}

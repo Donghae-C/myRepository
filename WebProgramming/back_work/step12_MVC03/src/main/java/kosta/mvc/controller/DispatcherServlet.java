@@ -1,0 +1,76 @@
+package kosta.mvc.controller;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Map;
+
+/**
+ * 모든 사용자의 요청을 진입점 Controller로 모아서 각 요청이 어떤 서비스로 가야 할 지를 찾아주고, 결과를 받아서 각 요청 결과
+ * 페이지로 이동시켜주는 서블릿
+ */
+@WebServlet(urlPatterns = "/front", loadOnStartup = 1)
+public class DispatcherServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private Map<String, Controller> clazzMap;
+	Controller con;
+
+	public DispatcherServlet() {
+		System.out.println("DispatcherServlet constructor call...");
+	}
+
+	@Override
+	public void init() throws ServletException {
+		ServletContext application = super.getServletContext();
+		clazzMap = (Map<String, Controller>) application.getAttribute("clazzMap");
+		System.out.println(clazzMap);
+	}
+
+	protected void service(HttpServletRequest request, HttpServletResponse response) {
+		String key = request.getParameter("key");
+		String methodName = request.getParameter("methodName");
+
+		System.out.println("요청됨..." + key + "/" + methodName);
+		if (key == null || key.equals("")) {
+			key = "board";
+		}
+
+		con = clazzMap.get(key);
+		Class<?> className = con.getClass();
+
+		try {
+			Method method = className.getMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
+			ModelAndView m = (ModelAndView) method.invoke(con, request, response);
+			if (m.isRedirect()) {
+				response.sendRedirect(m.getViewName());
+			} else {
+				request.getRequestDispatcher(m.getViewName()).forward(request, response);
+			}
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+			request.setAttribute("errMsg", "오류남");
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

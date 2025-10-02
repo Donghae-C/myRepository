@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #divResult {
+        width: 200px;
+        height: 100px;
+        border: 1px solid black;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>이벤트 등록 + Dom요소 접근</h1>
+    <form action="https://www.google.com">
+      <label for="name">이름</label>
+      <input type="text" name="name" id="name" /><br />
+      <label for="result">결과</label>
+      <input type="text" name="result" id="result" /><br />
+      <button type="submit">클릭</button>
+    </form>
+    <hr />
+    <div id="divResult"></div>
+    <script>
+      //클릭버튼 클릭했을때
+      document.querySelector("form[action]").addEventListener(
+        "submit",
+        () => {
+          console.log("???");
+          //input의 값을 조회해서 결과 박스에 넣기.
+          //input값 지우고 커서 놓기.
+          event.preventDefault();
+          let name = document.getElementById("name");
+          let result = document.getElementById("result");
+          console.log(name.value);
+          if (!name.value) {
+            alert("값을 입력해주세요.");
+            name.focus();
+
+            return;
+          }
+          let divResult = document.getElementById("divResult");
+          divResult.innerText = name.value + result.value;
+          name.value = "";
+          result.value = "";
+          name.focus();
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

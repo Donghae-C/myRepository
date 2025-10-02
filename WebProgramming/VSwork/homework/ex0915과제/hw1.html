@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #divCal {
+        border: 1px red solid;
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>계산해보자</h1>
+    <button id="btnCal">계산</button>
+    <div id="divCal"></div>
+    <script>
+      let start = () => {
+        const numberData = "1234567890";
+        const operatorData = "+-*/";
+        let result = true;
+        let cal;
+
+        let a = prompt("숫자1");
+        for (let i = 0; i < a.length; i++) {
+          let ch = a.charAt(i);
+          if (numberData.indexOf(ch) === -1) {
+            alert("숫자가 아님");
+            result = confirm("다시할래?");
+            if (result) {
+              start();
+              return;
+            }
+          }
+        }
+        a = parseInt(a);
+        let b = prompt("숫자2");
+        for (let i = 0; i < b.length; i++) {
+          let ch = b.charAt(i);
+          if (numberData.indexOf(ch) === -1) {
+            alert("숫자가 아님");
+            result = confirm("다시할래?");
+            if (result) {
+              start();
+              return;
+            }
+          }
+        }
+        b = parseInt(b);
+        let oper = prompt("기호?");
+        if (oper.length !== 1 || operatorData.indexOf(oper) === -1) {
+          alert("기호가 이상해");
+          result = confirm("다시할래?");
+          if (result) {
+            start();
+            return;
+          }
+        }
+        if (oper === "+") {
+          print(a, b, oper, add);
+        } else if (oper === "-") {
+          print(a, b, oper, minus);
+        } else if (oper === "*") {
+          print(a, b, oper, multi);
+        } else if (oper === "/") {
+          print(a, b, oper, divide);
+        }
+      };
+
+      let add = (a, b) => a + b;
+      let minus = (a, b) => a - b;
+      let multi = (a, b) => a * b;
+      let divide = (a, b) => a / b;
+
+      let print = (a, b, oper, calResult) => {
+        document.getElementById("divCal").innerText = `${a} ${oper} ${b} = ${calResult(a, b)}`;
+      };
+
+      document.getElementById("btnCal").addEventListener("click", start);
+    </script>
+  </body>
+</html>

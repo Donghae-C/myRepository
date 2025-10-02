@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="hasShownOverlayPopupBefore" value="true"/>
+	<section name="java.lang.Class">
+		<item key="replaceBarOpen" value="false"/>
+		<list key="findhistory">
+			<item value="재고"/>
+			<item value="add("/>
+			<item value="toU"/>
+			<item value="for"/>
+			<item value="synchronized"/>
+			<item value="close()"/>
+			<item value="CompareTo("/>
+			<item value="CompareTo"/>
+			<item value="sort("/>
+			<item value="sort"/>
+			<item value="list"/>
+			<item value="toString"/>
+			<item value="toS"/>
+			<item value="serialVersionUID"/>
+			<item value="aString"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="724"/>
+		<item key="DIALOG_Y_ORIGIN" value="396"/>
+	</section>
+</section>

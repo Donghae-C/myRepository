@@ -1,0 +1,29 @@
+package kosta.mvc.controller;
+
+import java.util.Arrays;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+/**
+ * 상품관리 Controller 
+ */
+public class GoodsController implements Controller {
+	/**
+	 * 상품검색
+	 */
+	public ModelAndView list(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("GoodsController list call...");
+		
+		request.setAttribute("goodsList", Arrays.asList("A","B","C","D"));
+		return new ModelAndView("goods/list.jsp");
+	}
+	
+	/**
+	 * 상품등록
+	 */
+	public ModelAndView insert(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("GoodsController insert call...");
+		return new ModelAndView("goods/registerOk.jsp", true);
+	}
+}

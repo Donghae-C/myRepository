@@ -1,0 +1,14 @@
+package kosta.mvc.controller;
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+/**
+ * 사용자의 각 요청을 처리해 줄 Controller
+ */
+public interface Controller {
+	
+}

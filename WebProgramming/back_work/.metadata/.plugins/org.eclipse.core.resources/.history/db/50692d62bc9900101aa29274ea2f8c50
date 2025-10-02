@@ -1,0 +1,33 @@
+package ex0925.listener;
+
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+
+public class AppListener implements ServletContextListener {
+
+	public AppListener() {
+		System.out.println("AppListener constructor...");
+	}
+	/**
+	 * 
+	 * 서버 start시
+	 */
+	@Override
+	public void contextDestroyed(ServletContextEvent sce) {
+		System.out.println("AppListener contextDestroyed call");
+		
+	}
+	
+	
+	/**
+	 * 
+	 * 서버 stop시. 즉 ServletContext 소멸될 때
+	 */
+	@Override
+	public void contextInitialized(ServletContextEvent sce) {
+		System.out.println("AppListener contextInitialized call");
+
+	}
+	
+	
+}

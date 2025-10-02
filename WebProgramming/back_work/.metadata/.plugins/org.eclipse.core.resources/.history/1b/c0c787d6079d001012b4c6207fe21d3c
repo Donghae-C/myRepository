@@ -1,0 +1,25 @@
+package kosta.mvc.controller;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+/**
+ * 회원 관리 Controller
+ */
+public class UserController implements Controller {
+	/**
+	 * 로그인하기
+	 */
+	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
+
+		return null;
+	}
+
+	/**
+	 * 회원정보 수정
+	 */
+	public ModelAndView update(HttpServletRequest request, HttpServletResponse response) {
+
+		return null;
+	}
+}

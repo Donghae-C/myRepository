@@ -1,0 +1,62 @@
+package web.mvc.filter;
+
+import jakarta.servlet.Filter;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.FilterConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.http.HttpFilter;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+import java.io.IOException;
+
+/**
+ * Servlet Filter implementation class AuthenticationCheckFilter
+ */
+@WebFilter("/front/*")
+public class AuthenticationCheckFilter extends HttpFilter implements Filter {
+       
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+     * @see HttpFilter#HttpFilter()
+     */
+    public AuthenticationCheckFilter() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
+	 */
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		HttpServletRequest req = (HttpServletRequest)request;
+		HttpServletResponse res = (HttpServletResponse)response;
+		String key = request.getParameter("key");
+		if("elec".equals(key)) {
+			HttpSession session = req.getSession();
+			System.out.println(session.getAttribute("loginUser"));
+			if(session.getAttribute("loginUser") == null) {
+				req.setAttribute("errorMsg", "로그인이 필요합니다.");
+				req.getRequestDispatcher("error/error.jsp").forward(req, res);	
+				return;
+			}
+		}
+		chain.doFilter(request, response);
+	}
+
+	/**
+	 * @see Filter#init(FilterConfig)
+	 */
+	public void init(FilterConfig fConfig) throws ServletException {
+		
+	}
+
+}

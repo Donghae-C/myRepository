@@ -1,0 +1,16 @@
+127.0.0.1 - - [22/Sep/2025:17:36:12 +0900] "GET / HTTP/1.1" 404 808
+0:0:0:0:0:0:0:1 - - [22/Sep/2025:17:36:25 +0900] "GET /step01_Servlet/test.jsp HTTP/1.1" 200 166
+0:0:0:0:0:0:0:1 - - [22/Sep/2025:17:36:25 +0900] "GET /favicon.ico HTTP/1.1" 404 819
+127.0.0.1 - - [22/Sep/2025:17:41:30 +0900] "GET / HTTP/1.1" 404 808
+0:0:0:0:0:0:0:1 - - [22/Sep/2025:17:41:30 +0900] "GET /step01_Servlet/bloodForm.html HTTP/1.1" 200 694
+0:0:0:0:0:0:0:1 - - [22/Sep/2025:17:41:36 +0900] "POST /step01_Servlet/bloodCheck HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [22/Sep/2025:17:41:43 +0900] "POST /step01_Servlet/bloodCheck HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [22/Sep/2025:17:41:50 +0900] "POST /step01_Servlet/bloodCheck HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [22/Sep/2025:17:42:00 +0900] "POST /step01_Servlet/bloodCheck HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [22/Sep/2025:17:46:21 +0900] "POST /step01_Servlet/bloodCheck HTTP/1.1" 200 -
+127.0.0.1 - - [22/Sep/2025:17:48:52 +0900] "GET / HTTP/1.1" 404 808
+0:0:0:0:0:0:0:1 - - [22/Sep/2025:17:48:52 +0900] "GET /step01_Servlet/bloodForm.html HTTP/1.1" 200 694
+0:0:0:0:0:0:0:1 - - [22/Sep/2025:17:48:56 +0900] "POST /step01_Servlet/bloodCheck HTTP/1.1" 200 175
+0:0:0:0:0:0:0:1 - - [22/Sep/2025:17:49:00 +0900] "POST /step01_Servlet/bloodCheck HTTP/1.1" 200 175
+0:0:0:0:0:0:0:1 - - [22/Sep/2025:17:49:12 +0900] "POST /step01_Servlet/bloodCheck HTTP/1.1" 200 175
+0:0:0:0:0:0:0:1 - - [22/Sep/2025:17:49:14 +0900] "POST /step01_Servlet/bloodCheck HTTP/1.1" 200 176

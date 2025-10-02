@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>비동기 통신 - fetch함수</h1>
+    <script>
+      //비동기 통신
+      let response = fetch("https://jsonplaceholder.typicode.com/users")
+        .then((result) => {
+          //console.log(result);
+          console.log(result.ok);
+          console.log(result.status);
+          //console.log(result.json());
+          return result.json();
+        })
+        .then((data) => {
+          //console.log(data);
+          data.forEach((user, index) => {
+            console.log(index + "=" + user.id + "/" + user.name + "/" + user.address.street);
+          });
+
+          let test = JSON.stringify(data);
+          console.log(test);
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+package kosta.mvc.controller;
+
+/**
+ * 상품관리 Controller 
+ */
+public class GoodsController implements Controller {
+	
+	
+}

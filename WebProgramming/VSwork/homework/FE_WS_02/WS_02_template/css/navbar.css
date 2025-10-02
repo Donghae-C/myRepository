@@ -1,0 +1,16 @@
+#navbar ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  background-color: aqua;
+  margin-bottom: 0px;
+  padding-left: 0px;
+}
+#navbar li {
+  margin: 0px 20px;
+}
+#navbar a {
+  text-decoration: none;
+  color: black;
+}

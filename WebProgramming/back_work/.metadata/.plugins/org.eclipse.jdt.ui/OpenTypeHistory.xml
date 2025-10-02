@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=step01_Servlet/C:\/edu\/SW\/apache-tomcat-10.1.46\/lib\/servlet-api.jar=/javadoc_location=/https:\/\/jakarta.ee\/specifications\/servlet\/6.0\/apidocs\/jakarta.servlet\/=/=/owner.project.facets=/jst.web=/&lt;jakarta.servlet.http(HttpServlet.class[HttpServlet" modifiers="1057" timestamp="1757309182000"/>
+    <typeInfo handle="=step05_Filter/C:\/edu\/SW\/apache-tomcat-10.1.46\/lib\/servlet-api.jar=/javadoc_location=/https:\/\/jakarta.ee\/specifications\/servlet\/6.0\/apidocs\/jakarta.servlet\/=/=/owner.project.facets=/jst.web=/&lt;jakarta.servlet(Filter.class[Filter" modifiers="1537" timestamp="1757309182000"/>
+    <typeInfo handle="=step05_Filter/C:\/Program Files\/Zulu\/zulu-17\/lib\/jrt-fs.jar`jdk.jdeps=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/17\/docs\/api\/=/&lt;com.sun.tools.jdeps(Analyzer$Filter.class[Filter" modifiers="1544" timestamp="1751280346000"/>
+    <typeInfo handle="=step06_Listener/C:\/edu\/SW\/apache-tomcat-10.1.46\/lib\/servlet-api.jar=/javadoc_location=/https:\/\/jakarta.ee\/specifications\/servlet\/6.0\/apidocs\/jakarta.servlet\/=/=/owner.project.facets=/jst.web=/&lt;jakarta.servlet(ServletContextListener.class[ServletContextListener" modifiers="1537" timestamp="1757309182000"/>
+    <typeInfo handle="=step06_Listener/C:\/edu\/SW\/apache-tomcat-10.1.46\/lib\/servlet-api.jar=/javadoc_location=/https:\/\/jakarta.ee\/specifications\/servlet\/6.0\/apidocs\/jakarta.servlet\/=/=/owner.project.facets=/jst.web=/&lt;jakarta.servlet.http(HttpSessionListener.class[HttpSessionListener" modifiers="1537" timestamp="1757309182000"/>
+    <typeInfo handle="=step06_Listener/C:\/edu\/SW\/apache-tomcat-10.1.46\/lib\/servlet-api.jar=/javadoc_location=/https:\/\/jakarta.ee\/specifications\/servlet\/6.0\/apidocs\/jakarta.servlet\/=/=/owner.project.facets=/jst.web=/&lt;jakarta.servlet.http(HttpSessionBindingListener.class[HttpSessionBindingListener" modifiers="1537" timestamp="1757309182000"/>
+    <typeInfo handle="=step09_DBCP/src\/main\/java&lt;ex0926.dao{MemberDAO.java[MemberDAO" modifiers="513" timestamp="1759104155622"/>
+    <typeInfo handle="=step10_MVC01/C:\/Program Files\/Zulu\/zulu-17\/lib\/jrt-fs.jar`java.naming=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/17\/docs\/api\/=/&lt;javax.naming.ldap(Control.class[Control" modifiers="1537" timestamp="1751280346000"/>
+    <typeInfo handle="=step10_MVC01/src\/main\/java&lt;kosta.mvc.controller{Controller.java[Controller" modifiers="513" timestamp="1759116383181"/>
+    <typeInfo handle="=step12_MVC03/src\/main\/java&lt;kosta.mvc.controller{Controller.java[Controller" modifiers="513" timestamp="1759131480948"/>
+    <typeInfo handle="=step14_MVCUserElec/C:\/Program Files\/Zulu\/zulu-17\/lib\/jrt-fs.jar`jdk.jfr=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/17\/docs\/api\/=/&lt;jdk.jfr.internal.jfc.model(ControlElement.class[ControlElement" modifiers="1536" timestamp="1751280346000"/>
+    <typeInfo handle="=step14_MVCUserElec/src\/main\/java&lt;web.mvc.controller{Controller.java[Controller" modifiers="513" timestamp="1759197069112"/>
+    <typeInfo handle="=step14_MVCUserElec/src\/main\/java&lt;web.mvc.service{UserService.java[UserService" modifiers="513" timestamp="1759196911390"/>
+    <typeInfo handle="=step14_MVCUserElec/src\/main\/java&lt;web.mvc.service{ElectronicsService.java[ElectronicsService" modifiers="513" timestamp="1759209362828"/>
+</typeInfoHistroy>

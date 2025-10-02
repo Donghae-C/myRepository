@@ -1,0 +1,55 @@
+package kosta.mvc.controller;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * 모든 사용자의 요청을 진입점 Controller로 모아서 각 요청이 어떤 서비스로 가야 할 지를 찾아주고, 결과를 받아서 각 요청 결과
+ * 페이지로 이동시켜주는 서블릿
+ */
+@WebServlet(urlPatterns = "/front", loadOnStartup = 1)
+public class DispatcherServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	Controller con;
+	
+	public DispatcherServlet() {
+		System.out.println("DispatcherServlet constructor call...");
+	}
+
+	protected void service(HttpServletRequest request, HttpServletResponse response){
+		String key = request.getParameter("key");
+
+		System.out.println("요청됨..." + key);
+
+		if ("select".equals(key)) {
+			// 검색
+			con = new SelectController();
+		} else if ("update".equals(key)) {
+			// 수정
+
+		} else if ("delete".equals(key)) {
+			// 삭제
+
+		} else if ("insert".equals(key)) {
+			// 등록
+
+		}
+		
+		try {
+			ModelAndView m = con.handleRequest(request, response);
+			if(m.isRedirect()) {
+				response.sendRedirect(m.getViewName());
+			}else {
+				request.getRequestDispatcher(m.getViewName()).forward(request, response);
+			}
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+			request.setAttribute("errMsg", "오류남");
+		} 
+	}
+
+}

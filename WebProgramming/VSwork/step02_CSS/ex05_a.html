@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      a {
+        text-decoration: none;
+      }
+      a:link {
+        color: red;
+      }
+      a:visited {
+        color: blue;
+        /*
+        색상 이외에는 적용이 안됨
+        */
+        text-decoration: line-through black solid !important;
+      }
+      a:hover {
+        color: aqua;
+      }
+      img:hover {
+        cursor: pointer;
+      }
+      ul {
+        list-style: url(/HTML/img/cat.gif);
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://www.naver.com">네이버</a><br />
+    <a href="https://www.google.com">구글</a><br />
+    <a href="https://www.namu.wiki">나무위키</a><br />
+    <a href="https://w3schools.com">w3school</a><br />
+    <img src="/HTML/img/cat.gif" alt="" />
+    <ul>
+      <li>ㅇㅇㅇ</li>
+      <li>ㅇㅇㅇ</li>
+      <li>ㅇㅇㅇ</li>
+    </ul>
+  </body>
+</html>

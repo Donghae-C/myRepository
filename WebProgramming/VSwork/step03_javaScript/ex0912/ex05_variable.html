@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>변수에 대해서 알아보자 - var vs let vs const</h1>
+
+    <script>
+      /*
+      변수 선언 방법
+      var 변수이름;
+      var 변수이름 = 값;
+      */
+
+      var a;
+      var b = 20;
+      c = 3.14;
+
+      document.write("<h4>");
+      document.write("a = " + a + ", " + typeof a + "<br>");
+      document.write("b = " + b + ", " + typeof b + "<br>");
+      document.write("c = " + c + ", " + typeof c + "<br>");
+      document.write("</h4>");
+      //값변경
+      a = new String("ㅇㅇ");
+      b = new Array(1, "hi", 3.5, true);
+      c = false;
+
+      document.write("<h4>");
+      document.write("a = " + a + ", " + typeof a + "<br>");
+      document.write("b = " + b + ", " + typeof b + "<br>");
+      document.write("c = " + c + ", " + typeof c + "<br>");
+      document.write("</h4>");
+
+      /*
+      1. 동일한 이름의 변수 또는 함수를 또 선언한다면?
+      2. 변수 또는 함수를 선언전에 사용한다면?
+        : 1,2 모두 성공한다.(에러가 생기지 않음)
+           자바 스크립트에서는 호이스팅이라는 개념이 있기 때문
+           호이스팅이란 변수, 함수를 미리 선언부 맨 위로
+           올린다는뜻.(선언부만! 초기화 안함)
+
+       */
+
+      var a = "123";
+      document.write("<h4>");
+      document.write("a = " + a + ", " + typeof a + "<br>");
+      document.write("d = " + d + ", " + typeof d + "<br>");
+      document.write("</h4>");
+
+      var d = 100;
+      document.write("<h4>");
+      document.write("d = " + d + ", " + typeof d + "<br>");
+      document.write("</h4>");
+
+      //함수선언 전에 호출
+      //test();
+
+      function test() {
+        alert("test() 호출됨");
+      }
+      /*
+      이름이 같을 경우 덮어씀
+      */
+      function test() {
+        alert("test() 호출됨2");
+      }
+
+      //var 변수의 scope
+      function test2() {
+        var name1 = "test";
+        age = 20; // age=20을 만나는 순간 전역변수....
+        //var를 생략하면..
+        var a = 50;
+        document.write("<hr>");
+        document.write("name = " + name1 + ", " + typeof name1 + "<br>");
+        document.write("age = " + age + ", " + typeof age + "<br>");
+        document.write("a = " + a + ", " + typeof a + "<br>");
+        document.write("this.a = " + this.a + ", " + typeof this.a + "<hr>");
+      }
+
+      function test3() {
+        //document.write("name = " + name1 + ", " + typeof name1 + "<br>");
+        document.write("age = " + age + ", " + typeof age + "<br>");
+        document.write("a = " + a + ", " + typeof a + "<br>");
+        document.write("this.a = " + this.a + ", " + typeof thisa + "<br>");
+      }
+
+      //test2();
+      //test3();
+
+      function test4() {
+        document.write(i);
+        document.write(j);
+        for (var i = 0; i < 5; i++) {
+          //기능
+        }
+        {
+          var j = 100;
+        }
+        document.write(i);
+        document.write(j);
+      }
+      test4();
+    </script>
+  </body>
+</html>

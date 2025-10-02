@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>New Web Project</title>
+  </head>
+  <body>
+    <form name="f">
+      <table>
+        <tr>
+          <th colspan="2" background-color="yellow">ID 중복 체크</th>
+        </tr>
+        <tr>
+          <th>ID</th>
+          <td>
+            <input type="text" name="id" />
+            <input type="button" value="사용하기" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <script>
+      document.querySelector("[value='사용하기']").addEventListener("click", (e) => {
+        let id = document.getElementsByName("id")[0];
+        if (!id.value) {
+          alert("아이디 입력");
+          id.focus();
+          return;
+        }
+        opener.document.getElementsByName("id")[0].value = id.value;
+        self.close();
+      });
+    </script>
+  </body>
+</html>

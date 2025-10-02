@@ -1,0 +1,8 @@
+1759128663186	Extract local variable 'application'
+1759128710069	Extract local variable 'fileName'
+1759128751541	Extract local variable 'rb'
+1759128876519	Extract local variable 'value'
+1759128993363	Extract local variable 'controller'
+1759129059622	Extract local variable 'className'
+1759129229839	Extract local variable 'con'
+1759129567368	Extract local variable 'application'

@@ -1,0 +1,25 @@
+package step06_Listener;
+
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+
+public class AppListener implements ServletContextListener {
+
+	public AppListener() {
+		System.out.println("AppListener constructor...");
+	}
+
+	@Override
+	public void contextDestroyed(ServletContextEvent sce) {
+		System.out.println("AppListener contextDestroyed call");
+		
+	}
+
+	@Override
+	public void contextInitialized(ServletContextEvent sce) {
+		System.out.println("AppListener contextInitialized call");
+
+	}
+	
+	
+}

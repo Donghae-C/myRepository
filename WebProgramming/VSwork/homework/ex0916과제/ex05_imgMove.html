@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Document</title>
+    <meta charset="utf-8" />
+
+    <style>
+      img {
+        position: absolute;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form>
+      <input type="button" value="레이어움직이기" id="move" />
+      <input type="button" value="레이어멈추기" id="stop" />
+    </form>
+    <p>
+      <img src="img2/dog.gif" id="img" />
+      <script>
+        // v interval로 px를 오른쪽 왼쪽으로 움직이게끔
+        // v 시간이 지나면 이미지가 바뀜
+        // v 움직이는 중에는 움직이기 버튼을 누를수 없음
+        // v 마우스 올리면/혹은 버튼을 누르면 멈춤
+        let imgStop;
+        let index = 0;
+        let direction = 1;
+        let index2 = 0;
+        let imgMove = function () {
+          const imgName = ["monkey.gif", "lion.gif", "cat.gif", "dog.gif"];
+          imgStop = setInterval(() => {
+            document.getElementById("img").style.left = index + "px";
+            index += direction;
+            if (index >= 500 || index == 0) {
+              direction *= -1;
+              document.getElementById("img").src = "./img2/" + imgName[index2];
+              index2++;
+              if (index2 >= imgName.length) {
+                index2 = 0;
+              }
+            }
+          }, 0);
+        };
+
+        document.getElementById("move").addEventListener("click", () => {
+          if (imgStop) {
+            alert("이미 움직이는 중");
+            return;
+          }
+          imgMove();
+        });
+
+        document.getElementById("stop").addEventListener("click", () => {
+          if (imgStop) {
+            clearInterval(imgStop);
+            imgStop = null;
+          }
+        });
+      </script>
+    </p>
+  </body>
+</html>

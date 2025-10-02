@@ -1,0 +1,10 @@
+1758703082391	Extract local variable 'session'
+1758759540009	Move 2 resources to 'login'
+1758759804285	Rename resource 'login'
+1758759928274	Copy compilation unit
+1758759930673	Delete element
+1758760922594	Extract local variable 'contextPath'
+1758761077879	Extract local variable 'contextPath'
+1758765563329	Extract local variable 'remoteAddr'
+1758765701287	Extract local variable 'remoteAddr'
+1758765805301	Extract local variable 'requestURI'

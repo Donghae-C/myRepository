@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .a {
+        width: 100px;
+        height: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="img/monkey.gif" class="a" />&nbsp;&nbsp; <img src="img/cat.gif" class="a" />&nbsp;&nbsp;
+    <hr />
+    <img src="img/dog.gif" width="80" height="60" data-event="3" />&nbsp;&nbsp;
+    <img src="img/lion.gif" width="80" height="60" data-event="4" />&nbsp;&nbsp;
+    <script>
+      onload = function () {
+        document.querySelectorAll("img").forEach((imgEle) => {
+          imgEle.addEventListener("click", (event) => {
+            console.log(event.target.style.width);
+            console.log(event.target.width);
+
+            /*CSS 스타일(외부·내부 stylesheet까지 포함된 최종 값)을 가져오려면
+                  getComputedStyle()을 써야 한다*/
+            console.log(getComputedStyle(event.target).width);
+            console.log(imgEle.naturalWidth);
+          });
+        });
+      };
+    </script>
+  </body>
+</html>

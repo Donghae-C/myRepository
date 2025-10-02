@@ -1,0 +1,70 @@
+package web.mvc.service;
+
+import java.io.File;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.naming.AuthenticationNotSupportedException;
+
+import web.mvc.dao.ElectronicsDAO;
+import web.mvc.dao.ElectronicsDAOImpl;
+import web.mvc.dto.Electronics;
+
+public class ElectronicsServiceImpl implements ElectronicsService {
+	ElectronicsDAO elecDao = new ElectronicsDAOImpl();
+	
+	@Override
+	public List<Electronics> selectAll() throws SQLException {
+		List<Electronics> elecList = elecDao.selectAll();
+		return elecList;
+	}
+
+	@Override
+	public List<Electronics> selectAll(int pageNo) throws SQLException {
+		return null;
+	}
+
+	@Override
+	public void insert(Electronics electronics) throws SQLException {
+		int result = elecDao.insert(electronics);
+		if(result == 0) {
+			throw new SQLException("등록되지 않음");
+		}
+	}
+
+	@Override
+	public Electronics selectByModelnum(String modelNum, boolean flag) throws SQLException {
+		if(flag) {
+			elecDao.increamentByReadnum(modelNum);
+		}
+		Electronics elec = elecDao.selectByModelNum(modelNum);
+		return elec;
+	}
+
+	@Override
+	public void delete(String modelNum, String password, String saveDir) throws SQLException {
+		int result = elecDao.delete(modelNum, password);
+		if(result == 0) {
+			throw new SQLException("삭제되지 않음");
+		}else {
+			File file = new File(saveDir);
+			file.delete();
+		}
+
+	}
+
+	@Override
+	public void update(Electronics electronics) throws SQLException, AuthenticationNotSupportedException {
+		Electronics selected = selectByModelnum(electronics.getModelNum(), false);
+		if(!electronics.getPassword().equals(selected.getPassword())) {
+			throw new AuthenticationNotSupportedException("비밀번호가 맞지 않음");
+		}
+		elecDao.update(electronics);
+		int result = elecDao.update(electronics);
+		if(result == 0) {
+			throw new SQLException("수정되지 않음");
+		}
+
+	}
+
+}

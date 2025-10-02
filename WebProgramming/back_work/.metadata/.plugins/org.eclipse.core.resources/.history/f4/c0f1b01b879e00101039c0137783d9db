@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+  </head>
+  <body>
+    <h1>비동기통신 : javaScript가 제공하는 fetch함수 알아보기</h1>
+    <form id="f" method="post">
+      이름 : <input type="text" id="name" name="name" /><br />
+      아이디 : <input type="text" id="id" name="id" /><br />
+
+      <button id="btn" type="button">클릭</button>
+    </form>
+
+    <hr />
+    <div id="result"></div>
+  </body>
+
+  <script type="text/javascript">
+    document.querySelector("#btn").addEventListener("click", async () => {
+      try {
+        //비동기 통신 - fetch()
+        //fetch("http://localhost:8080/step15_Ajax/ajaxTest")
+        const response = await fetch("/ajaxTest"); //서블릿의 urlPattern
+        console.log(response);
+        const result = await response.text(); //text일때
+        console.log(result);
+        //const result = await response.json(); //json일때
+        document.getElementById("result").innerHTML = `<h4>${result}</h4>`;
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  </script>
+</html>

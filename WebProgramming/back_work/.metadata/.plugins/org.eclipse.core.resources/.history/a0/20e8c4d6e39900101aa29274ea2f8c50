@@ -1,0 +1,43 @@
+package kosta.servlet;
+
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import kosta.dto.BoardDTO;
+
+import java.io.IOException;
+import java.util.List;
+
+/**
+ * Servlet implementation class BoardServlet
+ */
+@WebServlet(urlPatterns = "/Board", loadOnStartup = 1)
+public class BoardServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static final String ArrayList = null;
+       
+    public BoardServlet() {
+      System.out.println("BoardServlet constructor");
+    }
+
+	
+	public void init(ServletConfig config) throws ServletException {
+		System.out.println("리스트 불러오기");
+		List<BoardDTO> boardList = (List<BoardDTO>)super.getServletContext().getAttribute("boardList");
+		System.out.println(boardList);
+		
+		
+	}
+
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+
+}

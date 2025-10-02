@@ -1,0 +1,25 @@
+package kosta.mvc.controller;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class SelectController implements Controller {
+
+	@Override
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		//검색... -> 서비스 호출 -> 결과 받아서 scope에 저장하고, 뷰로 이동
+		System.out.println("SelectController 호출됨...");
+		List<String> menus = Arrays.asList("test1", "test2", "test3");
+		
+		request.setAttribute("menus", menus);
+		
+		
+		return new ModelAndView("selectResult.jsp");
+	}
+
+}

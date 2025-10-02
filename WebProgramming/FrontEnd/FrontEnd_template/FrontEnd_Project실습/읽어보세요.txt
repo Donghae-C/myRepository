@@ -1,0 +1,35 @@
+1. TodoList실습.pdf를 보고 완성하세요.
+
+2. my Shop 사이트 만들기
+    1) 웹사이트에서 벤치마킹할 사이트를 하나 선정 
+    2) 전체 디자인 구조를 설계
+    3) 데이터 구조를 설계
+    4) 수업시간에한 작성한 fruits 와 shoes를 참고해도 좋아요.
+
+3. https://www.w3schools.com/ 의 W3.CSS Templates 을 보고 맘에 드는 디자인을 선택하여
+   githubPage에 index.html을 만드세요.(bootstrap을 이용해도 좋아요)
+   githubPage  첫 화면에 자신의 소개에 대한 내용이 들어 갈수 있도록 만들어주세요.
+   참고로 제가 보여드린 샘플 디자인은 W3.CSS의 "CV Template" 디자인입니다.
+
+4. index.html 화면에 아래의 링크 두개를 연결해주세요.
+   <a href="">TodoList </a>
+   <a href="">KOSTA Bank </a>
+   <a href="">my Shop </a>
+
+
+5. github.com에 githubpage를 위한 repository를 생성해주세요
+    : 05.GitHubPage만들기.pdf파일을 참고하세요.
+
+6. 본인 pc에서 작성된 모드는 소스를 커밋하고
+   원격저장소에 push해주세요.
+
+7. https://본인계정.github.io/으로 접속해서 githubpage가 열리고
+    위 3)의 a링크가 잘 열리는지 확인해주세요.
+
+8. 모든 미션이 완성되면 slack에서 본인 github주소를 보내주세요.
+
+
+
+
+
+  수고하셨습니다.^.~

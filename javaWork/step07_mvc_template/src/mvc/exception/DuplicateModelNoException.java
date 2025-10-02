@@ -1,0 +1,14 @@
+package mvc.exception;
+
+/**
+ * 모델 번호 중복되었을때 나갈 예외
+ */
+public class DuplicateModelNoException extends Exception {
+	
+	public DuplicateModelNoException() {
+		
+	}
+	public DuplicateModelNoException(String message) {
+		super(message);
+	}
+}

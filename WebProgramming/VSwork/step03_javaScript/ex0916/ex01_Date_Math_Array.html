@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Date, Math, Array 알아보기</h1>
+    <script>
+      const today = new Date(); //month 조심
+      console.log(today);
+      console.log(today.getFullYear());
+      console.log(today.toLocaleString());
+      //난수발생////////////////////////////////////////
+
+      let no = parseInt(Math.random() * 10) + 1; // 0.0 ~ 0.99999.... 사이
+      console.log(no);
+
+      //배열 생성
+      const arr1 = [];
+      const arr2 = new Array(1, 2, 3, true, "str");
+      const arr3 = [2, 4, 6, 8, true];
+      const arr4 = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+      ];
+      //값 변경
+      arr1[0] = 10;
+      arr1[1] = 50;
+
+      // 배열방의 데이터 출력
+      console.log(arr1);
+      console.log(arr2);
+      console.log(arr2.toString());
+      console.log(arr3);
+      console.log(arr4);
+      console.log("----------------------");
+      //추가, 꺼내기
+      arr3.push("음"); //마지막 추가
+      arr3.unshift("처음"); //맨 앞 추가
+      arr3.pop(); //끝에 있는걸 지움("음" 지워짐)
+      arr3.shift(); //맨 앞을 지움("처음" 지워짐)
+      console.log(arr3.length);
+
+      console.log(arr3);
+    </script>
+  </body>
+</html>

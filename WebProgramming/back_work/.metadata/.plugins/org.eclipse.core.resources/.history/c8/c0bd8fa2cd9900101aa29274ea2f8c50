@@ -1,0 +1,26 @@
+package ex0925.listener;
+
+import jakarta.servlet.ServletRequestEvent;
+import jakarta.servlet.ServletRequestListener;
+import jakarta.servlet.annotation.WebListener;
+
+/**
+ * Application Lifecycle Listener implementation class RequestListener
+ *
+ */
+@WebListener
+public class RequestListener implements ServletRequestListener {
+
+    public RequestListener() {
+    	System.out.println("RequestListener constructor call...");
+    }
+
+    public void requestInitialized(ServletRequestEvent sre)  { 
+    	System.out.println("RequestListener requestInitialized");
+    }
+
+    public void requestDestroyed(ServletRequestEvent sre)  { 
+
+    }
+	
+}

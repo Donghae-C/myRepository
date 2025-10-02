@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Document</title>
+  </head>
+
+  <body>
+    <form name="f">
+      직업 :
+      <select name="job">
+        <option value="0">--선택--</option>
+        <option value="백수">백수</option>
+        <option value="백조">백조</option>
+        <option value="학생">학생</option>
+        <option value="날라리">날라리</option>
+      </select>
+    </form>
+
+    <p></p>
+    <div id="result"></div>
+    <script>
+      document.querySelector("[name='job']").addEventListener("change", (e) => {
+        let selected = e.target;
+        //선택된 value
+        let info = selected.value + "<br>";
+        //선택된 index
+        info += selected.selectedIndex + "<br>";
+        //길이
+        info += selected.length + "<br>";
+        document.getElementById("result").innerHTML = info;
+        //option 추가 - operion value =
+        let op = new Option("test", "tester");
+        //select 추가
+        selected.options[selected.length] = op;
+        //제거
+        selected.options[0] = null;
+      });
+    </script>
+  </body>
+</html>

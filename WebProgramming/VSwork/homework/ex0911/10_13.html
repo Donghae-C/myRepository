@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html {
+        font-size: clamp(14px, 1.5vw, 20px);
+      }
+      main {
+        text-align: center;
+      }
+      #container {
+        display: inline-block;
+        width: clamp(400px, 50vw, 600px);
+        height: clamp(400px, 50vw, 600px);
+        border: 1px solid black;
+        text-align: left;
+        border-radius: 10px;
+        font-size: 1rem;
+      }
+      #div1 {
+        padding: 20px;
+      }
+      #div2 {
+        padding: 20px;
+      }
+      #div3 {
+        text-align: center;
+      }
+      #div1 label {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        display: inline-block;
+        width: 80px;
+      }
+      #div2 label {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        display: inline-block;
+        width: 150px;
+      }
+      #div3 #submitBtn {
+        display: inline-block;
+        width: 80px;
+        height: 30px;
+        border: 1px black solid;
+        border-radius: 10px;
+      }
+      #div2 input {
+        margin-left: 20px;
+      }
+      input:checked + label {
+        color: red;
+        font-weight: bold;
+      }
+      input:not([type="radio"]) {
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 5px;
+        width: 200px;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <div id="container">
+        <form action="" method="">
+          <div id="div1">
+            <fieldset>
+              <legend>개인정보</legend>
+              <span>
+                <label for="name">이름</label>
+                <input type="text" name="name" id="name" />
+              </span>
+              <br />
+              <span>
+                <label for="phone">연락처</label>
+                <input type="tel" name="phone" id="phone" />
+              </span>
+            </fieldset>
+          </div>
+          <div id="div2">
+            <fieldset>
+              <legend>객실 형태</legend>
+              <input type="radio" name="room" id="basic" value="1" />
+              <label for="basic">기본형(최대2인)</label>
+              <br />
+              <input type="radio" name="room" id="family" value="2" />
+              <label for="family">가족형(최대8인)</label>
+            </fieldset>
+          </div>
+          <div id="div3">
+            <button id="submitBtn">제출</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

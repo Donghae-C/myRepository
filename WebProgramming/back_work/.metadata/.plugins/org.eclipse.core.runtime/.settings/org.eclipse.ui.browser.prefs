@@ -1,0 +1,4 @@
+browser-choice=1
+browsers=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<web-browsers current\="3">\r\n<system/>\r\n<external location\="C\:\\Program Files\\Internet Explorer\\iexplore.exe" name\="Internet Explorer"/>\r\n<external location\="C\:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe" name\="Microsoft Edge"/>\r\n<external location\="C\:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" name\="Chrome"/>\r\n</web-browsers>
+eclipse.preferences.version=1
+internalWebBrowserHistory=file\:///C\:/edu/WebProgramming/back_work/ex0924_LoginFilterListener/src/main/webapp/%EB%A1%9C%EA%B7%B8%EC%9D%B8_%EB%A1%9C%EA%B7%B8%EC%95%84%EC%9B%83.png|*|file\:/C\:/edu/WebProgramming/back_work/ex0924_LoginFilterListener/src/main/webapp/\uB85C\uADF8\uC778_\uB85C\uADF8\uC544\uC6C3.png|*|

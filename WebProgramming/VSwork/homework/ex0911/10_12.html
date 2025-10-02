@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input:checked + label {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <input type="radio" name="room" id="basic" />
+        <label for="basic">기본형(최대2인)</label>
+      </li>
+      <li>
+        <input type="radio" name="room" id="family" />
+        <label for="family">가족형(최대8인)</label>
+      </li>
+    </ul>
+  </body>
+</html>

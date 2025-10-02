@@ -1,0 +1,65 @@
+package ex0926.servlet;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.time.LocalDateTime;
+
+import ex0926.dao.MemberDAO;
+import ex0926.dao.MemberDaoImpl;
+import ex0926.dto.MemberDTO;
+
+/**
+ * Servlet implementation class InsertServelt
+ */
+@WebServlet("/insert")
+public class InsertServelt extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    private final MemberDAO memberDAO = new MemberDaoImpl();
+
+    public InsertServelt() {
+
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		String name = request.getParameter("name");
+		String strAge = request.getParameter("age");
+		String phone = request.getParameter("phone");
+		String addr = request.getParameter("addr");
+		
+		if(id.equals("") || pwd.equals("") || name.equals("") || strAge.equals("") || phone.equals("") || addr.equals("")) {
+			request.setAttribute("errMsg", "문제가..");
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		}
+		int age = Integer.parseInt(strAge);
+		ServletContext application = request.getServletContext();
+		String contextPath = application.getContextPath();
+		MemberDTO member = new MemberDTO(id, pwd, name, age, phone, addr, null);
+		int result = memberDAO.insert(member);
+		if(result != 0) {
+			response.sendRedirect(contextPath+"/index.jsp");
+		}else {
+			request.setAttribute("errMsg", "문제가..");
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		}
+		
+	}
+
+}

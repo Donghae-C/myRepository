@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #result {
+        width: 200px;
+        height: 200px;
+        border: 1px red solid;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>localStorage Test - 저장 이후 삭제될 때 까지 유지</h3>
+    <form action="">
+      <label for="s_key">key</label>
+      <input type="text" name="s_key" id="s_key" /><br />
+
+      <label for="s_value">value</label>
+      <input type="text" name="s_value" id="s_value" />
+
+      <button type="button" id="btnSave">저장하기</button>
+      <button type="button" id="btnLoad">불러오기</button>
+      <button type="button" id="btnDel">삭제하기</button>
+    </form>
+    <div id="result"></div>
+    <a href="ex03_localResult.html">이동하기</a>
+    <script>
+      document.getElementById("btnSave").addEventListener("click", () => {
+        let key = document.getElementById("s_key");
+        let value = document.getElementById("s_value");
+        localStorage.setItem(key.value, value.value);
+        key.value = "";
+        value.value = "";
+        getInfo();
+      });
+      document.getElementById("btnLoad").addEventListener("click", () => {
+        let key = document.getElementById("s_key");
+        let value = localStorage.getItem(key.value);
+        document.getElementById("result").innerText = key.value + " | " + value;
+      });
+      document.getElementById("btnDel").addEventListener("click", () => {
+        let key = prompt("삭제할 key?");
+        localStorage.removeItem(key);
+        getInfo();
+      });
+
+      let getInfo = function () {
+        //sessionStorage에 저장되어 있는 모든 정보 조회
+        let str = `저장된 개수 : ${localStorage.length} <br>`;
+        for (let i = 0; i < localStorage.length; i++) {
+          let key = localStorage.key(i);
+          let value = localStorage.getItem(key);
+          str += `${key} : ${value}<br>`;
+        }
+        document.getElementById("result").innerHTML = str;
+      };
+      getInfo();
+    </script>
+  </body>
+</html>

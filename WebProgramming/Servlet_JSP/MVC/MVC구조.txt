@@ -1,0 +1,31 @@
+ - MVC구조
+   - Model : Service영역(Business Logic : 알고리즘구현)
+                DAO(Data Access Object) - DB연동부분
+	     DTO(Data Transfer Object ) = VO(Value Object)
+
+   -View : GUI구현(화면구성)
+
+   -Controller : Model과 View 사이에서 중간자 역할.
+                 사용자 요청이 들어오면 그 요청에 해당하는 
+		 Service -> DAO 등을 호출해주고 그 결과를 받아
+		 결과에 해당하는 View쪽을 호출해준다.
+
+    MVC구조에서 Servlet 클래스는Controller의 역할로 클라이언트의 모든 요청을 받아서 제어하는 역할을 수행한다. 
+   서블릿이 수행하는 역할은
+      1. 클라이언트로부터 전달된 데이터(Form Value) 받는다. - request.getParameter()
+      2. 받은 Form Value가 있다면 VO객체로 생성 - ex) new MemberDTO(값 ,값....)
+     3. 클라이언트 요청을 처리할 Model의 비즈니스 로직을 호출한후  결과 데이터 반환 받는다. - service.메소드호출()
+     4. 반환 받은 결과를 Attribute에 데이터 바인딩을한다. -> request.setAttribute(name, value)
+     5.  결과 페이지 연결한다. --이동(forward or redirect ) 
+
+
+ -MVC구조를 사용해야하는 이유 : 유지보수, 재사용을 높히고
+                                    생산성을 좋게 하기 위함.
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+package auth.filter;
+
+import java.io.IOException;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import jakarta.servlet.Filter;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.http.HttpServletRequest;
+
+@WebFilter(urlPatterns = "/*")
+public class LogFilter implements Filter {
+	Log log = LogFactory.getLog(super.getClass());
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
+			throws IOException, ServletException {
+		HttpServletRequest req = (HttpServletRequest)request;
+		String remoteAddr = req.getRemoteAddr();
+		String requestURI = req.getRequestURI();
+		long start = System.currentTimeMillis();
+		filterChain.doFilter(request, response);
+		long end = timeMillis;
+		
+		long time = end - start;
+		
+		log.debug(remoteAddr + ", " + requestURI + ", " + time);
+		
+		
+	}
+
+}

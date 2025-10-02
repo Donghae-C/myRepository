@@ -1,0 +1,69 @@
+package web.mvc.controller;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Map;
+
+/**
+ * 모든 사용자의 요청을 진입점 Controller로 모아서 각 요청이 어떤 서비스로 가야 할 지를 찾아주고, 결과를 받아서 각 요청 결과
+ * 페이지로 이동시켜주는 서블릿
+ */
+@WebServlet(urlPatterns = "/front", loadOnStartup = 1)
+@MultipartConfig( //어노테이션을 통해  서블릿이 파일 업로드 기능을 할 수 있도록 웹 컨테이너에 지시
+        maxFileSize = 1024 * 1024 * 5, //5M - 한 번에 업로드 할 수 있는 파일 크기 제한
+       maxRequestSize = 1024 * 1024 * 50 //50M -전체 요청의 크기 제한. 기본값은 무제한 
+)
+public class DispatcherServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private Map<String, Controller> clazzMap;
+	Controller con;
+
+	public DispatcherServlet() {
+		System.out.println("DispatcherServlet constructor call...");
+	}
+
+	@Override
+	public void init() throws ServletException {
+		ServletContext application = super.getServletContext();
+		clazzMap = (Map<String, Controller>) application.getAttribute("clazzMap");
+		System.out.println(clazzMap);
+	}
+
+	protected void service(HttpServletRequest request, HttpServletResponse response) {
+		String key = request.getParameter("key");
+		String methodName = request.getParameter("methodName");
+
+		System.out.println("요청됨..." + key + "/" + methodName);
+		if (key == null || key.equals("")) {
+			key = "elec";
+		}
+		
+		if(methodName==null || methodName.equals("")) {
+			methodName = "select";
+		}
+
+		con = clazzMap.get(key);
+		Class<?> className = con.getClass();
+
+		try {
+			Method method = className.getMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
+			ModelAndView m = (ModelAndView) method.invoke(con, request, response);
+			if (m.isRedirect()) {
+				response.sendRedirect(m.getViewName());
+			} else {
+				request.getRequestDispatcher(m.getViewName()).forward(request, response);
+			}
+		} catch (Exception e) {
+			request.setAttribute("errMsg", e.getMessage())
+		} 
+	}
+
+}

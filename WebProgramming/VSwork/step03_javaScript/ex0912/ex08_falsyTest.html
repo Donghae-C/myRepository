@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>자바스크립트 false 개념</h1>
+    <script>
+      /*
+        자바스크립트의 7개의 false
+        0
+        -0
+        undefined
+        false
+        NaN
+        ""
+        null
+
+        모두 조건절에서 false로 처리됨
+        */
+
+      // function test(){} //함수 표현식
+
+      let test = function (name) {
+        // if (name) {
+        //   console.log(`${name}님 반갑습니다.`);
+        // } else {
+        //   console.log("이름좀 써라");
+        // }
+        name ? console.log(`${name}님 반갑습니다.`) : console.log("이름좀 써라");
+        name && console.log(`${name}님 반갑습니다.`);
+      };
+      let inputName = prompt("??");
+      test(inputName);
+    </script>
+  </body>
+</html>

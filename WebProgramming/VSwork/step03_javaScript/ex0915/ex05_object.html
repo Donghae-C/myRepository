@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Object key와 value</h1>
+    <script>
+      //객체(Object) 만들어보기.
+      const person = {
+        name: "dh",
+        age: 80,
+        addr: "sn",
+        print: function () {
+          return this.name + ", " + this.age + ", " + this.addr;
+        },
+      };
+      console.log(person.addr);
+      console.log(person.print());
+
+      // Object의 key(propertyName)정보를 가져오고 싶다.
+      let keys = Object.keys(person);
+      console.log(keys);
+      let value = Object.values(person);
+      console.log(value);
+
+      // key와 value를 한 쌍으로 정보를 가져오고 싶다.
+      for (let k of keys) {
+        console.log(k + " = " + person[k]);
+      }
+      for (let i = 0; i < keys.length; i++) {
+        console.log(keys[i] + " = " + value[i]);
+      }
+      console.log(person["name"]);
+    </script>
+  </body>
+</html>

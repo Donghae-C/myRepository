@@ -1,0 +1,6 @@
+#key=className
+
+select=kosta.mvc.controller.SelectController
+insert=kosta.mvc.controller.insertController
+update=kosta.mvc.controller.updateController
+delete=kosta.mvc.controller.deleteController

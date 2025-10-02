@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="EUC-KR" />
+    <title>Insert title here</title>
+    <style type="text/css">
+      table {
+        width: 400px;
+        border: 1px red solid;
+      }
+      td,
+      th {
+        border: 1px gray solid;
+      }
+      span:hover {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>테이블 동적으로 생성하기</h1>
+    <span id="add">추가하기</span>
+
+    <table id="table">
+      <tr>
+        <th>이름</th>
+        <th>나이</th>
+        <th>삭제하기</th>
+      </tr>
+      <!-- 동적으로 tr 추가 또는 제거  -->
+    </table>
+    <script>
+      let age = 0;
+      let table = document.getElementById("table");
+      let addBtn = document.getElementById("add");
+      addBtn.addEventListener("click", () => {
+        let row = table.insertRow(table.rows.length);
+        row.insertCell(0).innerHTML = `<input type="text" name="name" value='test'>`;
+        row.insertCell(1).innerHTML = `<input type="text" value=${age++}>`;
+        row.insertCell(2).innerHTML = `<input type="button" value="삭제" onclick="del()">`;
+      });
+
+      let del = function () {
+        let tr = event.target.parentElement.parentElement;
+        tr.parentElement.removeChild(tr);
+      };
+    </script>
+  </body>
+</html>

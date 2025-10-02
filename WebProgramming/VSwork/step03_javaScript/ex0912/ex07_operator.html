@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>연산자</h1>
+    <script>
+      let i = 10;
+      let j = "10";
+
+      document.write("<h3>");
+
+      document.write("i = " + i + ", type = " + typeof i + "<br>");
+      document.write(`j = ${j}, type = ${typeof j}<br>`);
+
+      document.write("<hr>");
+      document.write(`${i} == ${j} => ${i == j}<br>`);
+      document.write(`${i} === ${j} => ${i === j}`);
+
+      //형변환
+      /*
+      1) window.parseInt()
+        값 안에 문자가 나오기 전까자 숫자를 추출
+      2) Number()
+        문자가 포함되어 있으면 NaN 결과가 나온다(Not a Number)
+      3) isNaN()
+        is Not a Number 숫자가 아니면 true, 숫자이면 false
+      */
+      document.write("<hr>");
+      let data = "100";
+      let data2 = "100a";
+      let data3 = "a100";
+      document.write(`data = ${data}, type = ${typeof data}<br>`);
+      document.write(`data = ${parseInt(data)}, type = ${typeof parseInt(data)}<br>`);
+      document.write(`data = ${Number(data)}, type = ${typeof Number(data)}<hr>`);
+
+      document.write(`data = ${data2}, type = ${typeof data2}<br>`);
+      document.write(`data = ${parseInt(data2)}, type = ${typeof parseInt(data2)}<br>`);
+      document.write(`data = ${Number(data2)}, type = ${typeof Number(data2)}<hr>`);
+
+      document.write(`data = ${data3}, type = ${typeof data3}<br>`);
+      document.write(`data = ${parseInt(data3)}, type = ${typeof parseInt(data3)}<br>`);
+      document.write(`data = ${Number(data3)}, type = ${typeof Number(data3)}<hr>`);
+
+      if (isNaN(data)) {
+        console.log("숫자 아님");
+      } else {
+        console.log("숫자임");
+      }
+      document.write("</h3>");
+
+      //1.의사를 물어볼때(confirm)
+      //   let result = confirm("ㅇㅇ?");
+      //   console.log(result);
+      //2.입력값을 받을 때
+      let str = prompt("ㅇㅇ???", "test");
+      console.log(str);
+    </script>
+  </body>
+</html>

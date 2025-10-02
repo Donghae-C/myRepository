@@ -1,0 +1,10 @@
+package kosta.mvc.controller;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class CartController implements Controller {
+	public ModelAndView insert(HttpServletRequest request, HttpServletResponse response) {
+		
+	}
+}

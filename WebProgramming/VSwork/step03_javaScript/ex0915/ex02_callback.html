@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>callback 함수 알아보기</h1>
+    <script>
+      //더하기 기능
+      let add = (a, b) => {
+        return a + b;
+      };
+
+      //뺄셈 기능
+      let minus = (a, b) => a - b;
+
+      //두 수와 연산 기호를 입력받아서 계산
+      let print = (a, b, operator) => {
+        let result;
+        if (operator === "+") {
+          result = add(a, b);
+        } else if (operator === "-") {
+          result = minus(a, b);
+        }
+        console.log(`${a}${operator}${b} = ${result}`);
+      };
+
+      //함수 호출
+      print(5, 3, "+");
+      print(5, 3, "-");
+      //callback함수를 이용해서 각 연산함수를 호출해보자/////////////////
+
+      let print2 = (a, b, operator) => {
+        console.log(operator(a, b));
+      };
+
+      print2(6, 5, add);
+      print2(6, 5, minus);
+      print2(6, 5, (a, b) => a * b);
+      print2(6, 5, (a, b) => {
+        return a / b;
+      });
+    </script>
+  </body>
+</html>

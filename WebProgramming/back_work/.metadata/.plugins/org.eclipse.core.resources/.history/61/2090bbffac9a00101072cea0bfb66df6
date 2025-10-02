@@ -1,0 +1,52 @@
+package ex0926.servlet;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.time.LocalDateTime;
+
+import ex0926.dao.MemberDAO;
+import ex0926.dao.MemberDaoImpl;
+import ex0926.dto.MemberDTO;
+
+/**
+ * Servlet implementation class InsertServelt
+ */
+@WebServlet("/insert")
+public class InsertServelt extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    private final MemberDAO memberDAO = new MemberDaoImpl();
+
+    public InsertServelt() {
+
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		String name = request.getParameter("name");
+		int age = Integer.parseInt(request.getParameter("age"));
+		String phone = request.getParameter("phone");
+		String addr = request.getParameter("addr");
+		String joinDate = LocalDateTime.now().toString();
+		MemberDTO member = new MemberDTO(id, pwd, name, age, phone, addr, joinDate);
+		memberDAO.insert(member);
+		
+		
+	}
+
+}

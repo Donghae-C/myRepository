@@ -1,0 +1,7 @@
+footer {
+  background-color: aqua;
+  text-align: right;
+}
+footer li {
+  list-style: none;
+}

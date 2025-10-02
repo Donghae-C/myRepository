@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>변수에 대해서 알아보자 - var vs let vs const</h1>
+    <script>
+      //변수를 선언할 때 var 대신 let으로 변경해보자.
+      let a;
+      let b = 20;
+      c = 3.14;
+
+      document.write("<h4>");
+      document.write("a = " + a + ", " + typeof a + "<br>");
+      document.write("b = " + b + ", " + typeof b + "<br>");
+      document.write("c = " + c + ", " + typeof c + "<br>");
+      document.write("</h4>");
+      //값변경
+      a = new String("ㅇㅇ");
+      b = new Array(1, "hi", 3.5, true);
+      c = false;
+
+      document.write("<h4>");
+      document.write("a = " + a + ", " + typeof a + "<br>");
+      document.write("b = " + b + ", " + typeof b + "<br>");
+      document.write("c = " + c + ", " + typeof c + "<br>");
+      document.write("</h4>");
+
+      //동일한 이름의 변수 선언 불가.
+      //let a = "졸지말아요~";
+      document.write("a = " + a + " , " + typeof a + "<br>");
+
+      //변수 또는 함수를 선언전에 접근 불가.
+      // let d=100;  // Uncaught ReferenceError: Cannot access 'd' before initialization
+      //document.write("d = " + d + " , " + typeof d + "<br>");
+      let d = 100;
+      document.write("d = " + d + " , " + typeof d + "<br>");
+      document.write("</h4>");
+
+      //변수를 let으로 선언하면 scope는 블럭단위가 된다.
+      function test4() {
+        //document.write(i);
+        //document.write(j);
+        for (let i = 0; i < 5; i++) {
+          //기능
+        }
+        {
+          let j = 100;
+        }
+        //document.write(i);
+        //document.write(j);
+      }
+      test4();
+
+      //const 상수이다.
+      let addr; // 여긴 변수
+      const message = "test"; // 여긴 상수 final.
+
+      addr = "?????";
+      //message = "test2";
+      // message="ddd";// Uncaught TypeError: Assignment to constant variable.
+      //자바스크립트에서 주로 const에는 객체를 저장한다.(Array , Object, 함수 )
+
+      //함수를 함수표현식으로 작성할 때 const를 권장한다.
+      const person = { name: "test", age: 20, addr: "서울" }; //[] : 배열, {} : object
+      console.log(person.name);
+      person.name = "??";
+      console.log(person.name);
+
+      //함수를 선언전에 호출해보자 const or let
+
+      const test00 = function () {
+        console.log("test00 호출함");
+      };
+    </script>
+  </body>
+</html>

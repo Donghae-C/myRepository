@@ -1,0 +1,17 @@
+package kosta.mvc.controller;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class CartController implements Controller {
+	public ModelAndView insert(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("CartController insert call");
+		request.setAttribute("message", "이건 리스트 출력대용");
+		return new ModelAndView("cart/list.jsp");
+	}
+	
+	public ModelAndView select(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("CartController select call");
+		request.setAttribute("message", "select");
+	}
+}

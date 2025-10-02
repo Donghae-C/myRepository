@@ -1,0 +1,20 @@
+package web.mvc.controller;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import web.mvc.dto.UserDTO;
+import web.mvc.exception.AuthenticationException;
+import web.mvc.service.UserService;
+import web.mvc.service.UserServiceImpl;
+
+public class UserController implements Controller {
+	UserService userServcie = new UserServiceImpl();
+	
+	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
+		String userId = request.getParameter("userId");
+		String pwd = request.getParameter("pwd");
+		UserDTO userDto = new UserDTO(userId, pwd);
+		userServcie.loginCheck(userDto);
+		return new ModelAndView();
+	}
+}

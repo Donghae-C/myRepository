@@ -1,0 +1,15 @@
+package web.mvc.controller;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import web.mvc.service.UserService;
+
+public class UserController implements Controller {
+	
+	
+	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
+		String userId = request.getParameter("userId");
+		String pwd = request.getParameter("pwd");
+		return new ModelAndView();
+	}
+}

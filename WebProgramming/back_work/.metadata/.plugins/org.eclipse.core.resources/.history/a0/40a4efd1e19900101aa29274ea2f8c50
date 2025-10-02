@@ -1,0 +1,34 @@
+package kosta.listener;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
+import kosta.dto.BoardDTO;
+
+
+@WebListener
+public class AppListner implements ServletContextListener {
+
+    
+    public AppListner() {
+    
+    }
+
+	
+    public void contextInitialized(ServletContextEvent e)  { 
+    	ServletContext application = e.getServletContext();
+    	List<BoardDTO> boardList = new ArrayList<BoardDTO>();
+    }
+
+	/**
+     * @see ServletContextListener#contextDestroyed(ServletContextEvent)
+     */
+    public void contextDestroyed(ServletContextEvent sce)  { 
+         // TODO Auto-generated method stub
+    }
+	
+}

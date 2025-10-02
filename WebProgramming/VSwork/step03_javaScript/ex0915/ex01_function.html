@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>함수 선언하는 방법</h2>
+    <script>
+      /*
+        함수를 선언하는 방법
+        1) 선언적 함수(함수 선언식)
+            function 함수이름(){
+            }
+            호이스팅.. 함수 이름이 같아도 오류가 아님. 즉.. 
+
+        2) 함수 표현식 > 함수도 객체이고, 함수를 변수에 담을 수 있다.
+            let(const) 변수이름 = function(){
+            }
+            변수 이름이 같으면 오류가 생김. 분별이 가능
+
+        3) 화살표함수(arrow함수)(익명함수)
+            () => {}
+            (파라미터, 파라미터) => {}
+
+            () => 기능; // 기능이 한줄일때 {}생략 가능
+            () => 기능; // 함수가 return이 있는 함수이면서 문장이 한문장일때
+                            생략하면 한문장이 return이 된다...?
+            
+            xx//() => return 기능 // 에러 발생.// {}가 필요함.xx
+        
+        4) 콜백함수(callback function)
+            함수의 매개변수의 값으로 함수를 전달하는 것.
+        */
+      //1. 함수 선언식///////////////////////////////////////////
+      function test01() {
+        console.log("test01");
+      }
+
+      //같은 이름의 함수이면 덮어써버리고.. 오류를 내지 않음
+      function test01(name) {
+        console.log(name + "test01 call-2");
+      }
+
+      //2. 함수 표현식////////////////////////////////////////////////////
+      const test03 = function aa() {
+        // 변수에 넣는 함수의 이름을 넣을 필요가 없음.
+        console.log("test03 call");
+      };
+
+      const test04 = function () {
+        console.log("test04 call");
+      };
+
+      //같은 이름의 변수는 오류를 낸다.
+      //   const test04 = function () {
+      //     console.log("test04 call");
+      //   };
+
+      //3. arrow 함수//////////////////////////////////////////////////////
+      const test05 = () => {
+        console.log("test05 call");
+      };
+
+      const test06 = (a, b) => {
+        console.log(`${a} test06 call ${b}`);
+      };
+
+      const test07 = (name) => name + "임";
+      //const test07 = (name) => {name + "임";} //이경우 return이 있어야먄 값을 반환함
+
+      const test08 = () => console.log(test07("ㅎㅇ"));
+
+      //함수 호출
+      test01("dd");
+      test03();
+      test05();
+      test06(1, 3);
+      test08();
+    </script>
+  </body>
+</html>

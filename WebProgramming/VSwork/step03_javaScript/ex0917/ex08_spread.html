@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Spread연산자 : 배열이나 객체를 펼쳐서 복사하거나 병합할 때 사용<h1>
+    <script>
+        //배열 
+        const arr1 = [1,3,2];
+        {
+            const arr2 = [...arr1];
+            arr2.sort();
+            arr2.push(4);
+            console.log(arr1);
+            console.log(arr2);
+        }
+
+        //객체를 저장한 배열 spread연산자로...
+        {
+            const arr1 = [{name:"test1", age:20},{name:"test2", age:21}]
+            const arr2 = [...arr1]
+            console.log(arr1);
+            console.log(arr2);
+            arr2[1].name = "test3";
+            console.log(arr1);
+            console.log(arr2);
+        }
+
+        {
+            const obj1 = {name:"test1", age:20};
+            const obj2 = {...obj1};
+
+            console.log(obj1);
+            console.log(obj2);
+
+            obj2.name = "test3";
+            console.log(obj1);
+            console.log(obj2);
+        }
+
+        //여러개의 배열 or 객체를 합칠 수 있다.
+        {
+            const arr2 = [1,2, ...arr1, 5];
+            console.log(arr2);
+
+            const arr3 = [0,2,3, ...arr2.slice(1.3), 5];
+            console.log(arr3);
+
+            const arr4 = [...arr1, ...arr2, ...arr3];
+            console.log(arr4);
+        }
+    </script>
+</body>
+</html>

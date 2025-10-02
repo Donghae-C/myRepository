@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 305px;
+        font-size: 0px;
+      }
+      div {
+        width: 150px;
+        height: 150px;
+        font-size: 16px;
+      }
+      .a {
+        background-color: aquamarine;
+        display: inline-block;
+        border-radius: 2000px 0px;
+        text-align: center;
+        vertical-align: middle;
+        align-content: center;
+      }
+      /*
+      margin은 겹쳐져도 더해지지 않음..
+      */
+      .b {
+        background-color: aquamarine;
+        display: inline-block;
+        border-radius: 0px 2000px;
+        text-align: center;
+        vertical-align: middle;
+        align-content: center;
+      }
+      .c {
+        display: inline-block;
+        border-radius: 0px 2000px;
+        background-color: bisque;
+      }
+      .d {
+        display: inline-block;
+        border-radius: 2000px 0px;
+        background-color: bisque;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="a">box모델</div>
+    <div class="b">box모델</div>
+    <div class="c">box모델</div>
+    <div class="d">box모델</div>
+  </body>
+</html>

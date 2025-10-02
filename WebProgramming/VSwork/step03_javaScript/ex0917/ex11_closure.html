@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Closure : 클로져는 내부함수에서 외부 함수의 변수를 기억했다가 사용 할수 있도록 하는것</h3>
+    <script>
+      let outer = function (x) {
+        console.log(x);
+
+        return function (y) {
+          return x + y;
+        };
+      };
+
+      console.log("----------------");
+      const re1 = outer(5);
+      const re2 = outer(6);
+      const re3 = outer(7);
+
+      console.log(re1(8));
+      console.log(re2(9));
+      console.log(re3(10));
+    </script>
+  </body>
+</html>

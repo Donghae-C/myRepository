@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @font-face {
+        font-family: "myFont";
+        src: url(font/Black_Han_Sans/BlackHanSans-Regular.ttf);
+      }
+      /*
+      %단위는 기준이 부모의 크기내에서 비율로 계산
+      */
+      .outer {
+        background-color: skyblue;
+        width: 90vw;
+        height: 60vw;
+        font-size: 2vw;
+      }
+      .a {
+        background-color: beige;
+        font-size: 1em;
+      }
+      .b {
+        background-color: orange;
+        font-size: 2em;
+      }
+      .c {
+        background-color: bisque;
+      }
+      /*
+      글꼴 설정
+      */
+      * {
+        font-family: myfont, 궁서체;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      em vs rem vs px
+      <div class="a">em : 부모노드를 기준으로</div>
+      <div class="b">rem : root노드를 기준으로 16px이 기준</div>
+      <div class="c">px : 해상도를 기준으로</div>
+    </div>
+  </body>
+</html>

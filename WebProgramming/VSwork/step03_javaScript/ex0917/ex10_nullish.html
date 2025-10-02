@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>
+      -null` 또는 `undefined`일 때만 대체값을 반환하는 연산자** <br />
+      - 문법: `값1 ?? 값2`
+    </h3>
+    <script>
+      {
+        const name = "test1";
+        const userName = name || "guest";
+
+        console.log("당신의 이름은 " + userName);
+      }
+      {
+        const name = "";
+        const userName = name || "guest";
+
+        console.log("당신의 이름은 " + userName);
+      }
+      {
+        const name = 0;
+        const userName = name || "guest";
+
+        console.log("당신의 이름은 " + userName);
+      }
+      {
+        const name = null;
+        const userName = name || "guest";
+
+        console.log("당신의 이름은 " + userName);
+      }
+      {
+        let name;
+        const userName = name || "guest";
+
+        console.log("당신의 이름은 " + userName);
+        console.log(name);
+      }
+
+      console.log("null or undefined인 경우만 false로...");
+      {
+        const name = 0;
+        const userName = name ?? "guest";
+
+        console.log("당신의 이름은 " + userName);
+      }
+      {
+        const name = "";
+        const userName = name ?? "guest";
+
+        console.log("당신의 이름은 " + userName);
+      }
+      {
+        const name = null;
+        const userName = name ?? "guest";
+
+        console.log("당신의 이름은 " + userName);
+      }
+      {
+        const name = undefined;
+        const userName = name ?? "guest";
+
+        console.log("당신의 이름은 " + userName);
+      }
+    </script>
+  </body>
+</html>

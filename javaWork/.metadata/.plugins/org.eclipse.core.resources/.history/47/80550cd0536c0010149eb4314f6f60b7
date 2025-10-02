@@ -1,0 +1,24 @@
+package ex0729.homework;
+
+public class ReportCard {
+
+	public static void main(String[] args) {
+		String myName = "최동홰";
+		int koreanRecord = (int)(Math.random()*56)+45;
+		int englishRecord = (int)(Math.random()*56)+45;
+		int mathRecord = (int)(Math.random()*56)+45;
+		
+		int sumRecord = koreanRecord + englishRecord + mathRecord;
+		double recordAvg = sumRecord / 3.0;
+		char charRecord = 'F';
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

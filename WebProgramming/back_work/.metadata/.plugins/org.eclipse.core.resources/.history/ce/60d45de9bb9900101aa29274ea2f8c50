@@ -1,0 +1,11 @@
+package step06_Listener;
+
+import jakarta.servlet.ServletContextListener;
+
+public class AppListener implements ServletContextListener {
+
+	public AppListener() {
+		System.out.println("AppListener constructor...");
+	}
+	
+}

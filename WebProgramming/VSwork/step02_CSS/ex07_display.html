@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+      }
+      /*
+      inline요소라 width, height가 적용되지 않음
+      */
+      /*
+      inline요소라 margin-top, margin-bottom이 적용되지 않음
+      */
+      span {
+        width: 100px;
+        height: 100px;
+      }
+      /*
+      block요소로 바꾸면 적용됨.
+      */
+      .a {
+        background-color: orange;
+      }
+      .b {
+        background-color: aquamarine;
+        margin: 10px;
+      }
+      .c {
+        background-color: bisque;
+      }
+      #a {
+        background-color: orange;
+      }
+
+      #b {
+        background-color: aquamarine;
+        display: inline-block;
+      }
+      #c {
+        background-color: bisque;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="a">div1</div>
+    <div class="b">div2</div>
+    <div class="c">div3</div>
+    <hr />
+    <span id="a">span1</span><span id="b">span2</span><span id="c">span3</span>
+  </body>
+</html>
